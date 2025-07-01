@@ -813,6 +813,28 @@ html {
     margin-bottom: 0;
     overflow: hidden;
 }
+.fragrance-card .radio-container, .fragrance-card .fragrance-name {
+    display: flex;
+    align-items: center;
+}
+.fragrance-card .radio-container {
+    margin-right: 8px;
+}
+.fragrance-card .fragrance-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+.fragrance-card .fragrance-name {
+    font-size: 1rem;
+    color: #016630;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
 .fragrance-card span {
     font-size: 1rem;
     color: #016630;
@@ -3211,4 +3233,32 @@ html {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.custom-radio {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #16a34a;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  position: relative;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.fragrance-option.active .custom-radio {
+  border-color: #16a34a;
+  background: #16a34a;
+}
+.fragrance-option.active .custom-radio::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
 }

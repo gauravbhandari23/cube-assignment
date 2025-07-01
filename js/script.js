@@ -34,8 +34,12 @@ function selectFragrance(element) {
     const parent = element.closest('.fragrance-selection');
     parent.querySelectorAll('.fragrance-option').forEach(option => {
         option.classList.remove('active');
+        const radio = option.querySelector('.radio-button');
+        if (radio) radio.classList.remove('active');
     });
     element.classList.add('active');
+    const selectedRadio = element.querySelector('.radio-button');
+    if (selectedRadio) selectedRadio.classList.add('active');
 }
 
 // Simple type selection for Try Once
