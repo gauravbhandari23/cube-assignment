@@ -67,6 +67,45 @@ document.addEventListener('DOMContentLoaded', function() {
             paginationDots[index].classList.add('active');
         });
     });
+
+    // Counter animation for stats (on scroll into view, every time)
+    const counters = document.querySelectorAll('.stat-value');
+    const statsSection = document.querySelector('.stats-section');
+    let animating = false;
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animating) {
+                animating = true;
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const speed = 40;
+                    function updateCount() {
+                        const increment = Math.ceil(target / speed);
+                        if (count < target) {
+                            count += increment;
+                            if (count > target) count = target;
+                            counter.innerText = `${count}%`;
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = `${target}%`;
+                        }
+                    }
+                    counter.innerText = '0%';
+                    updateCount();
+                });
+            } else if (!entry.isIntersecting) {
+                // Reset counters when section leaves viewport
+                animating = false;
+                counters.forEach(counter => {
+                    counter.innerText = '0%';
+                });
+            }
+        });
+    }, { threshold: 0.4 }); // 40% of section visible
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
 });
 
 // Accordion functionality for Our Collection section
