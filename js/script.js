@@ -62,6 +62,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const paginationDots = document.querySelectorAll('.pagination-dots .dot');
     
+    const prevBtn = document.querySelector('.main-image .prev-btn');
+    const nextBtn = document.querySelector('.main-image .next-btn');
+    let currentIndex = Array.from(thumbnails).findIndex(thumb => thumb.classList.contains('active'));
+
+    function updateGalleryByIndex(index) {
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        paginationDots.forEach(dot => dot.classList.remove('active'));
+        if (index < 0) index = thumbnails.length - 1;
+        if (index >= thumbnails.length) index = 0;
+        thumbnails[index].classList.add('active');
+        paginationDots[index].classList.add('active');
+        const mainImage = document.querySelector('.main-product-image');
+        const thumbImg = thumbnails[index].querySelector('img');
+        if (mainImage && thumbImg) {
+            mainImage.src = thumbImg.src;
+            mainImage.alt = thumbImg.alt;
+        }
+        currentIndex = index;
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            updateGalleryByIndex(currentIndex - 1);
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            updateGalleryByIndex(currentIndex + 1);
+        });
+    }
+
     thumbnails.forEach((thumbnail, index) => {
         thumbnail.addEventListener('click', function() {
             thumbnails.forEach(thumb => thumb.classList.remove('active'));
@@ -69,6 +100,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             this.classList.add('active');
             paginationDots[index].classList.add('active');
+
+            // Update main product image to match clicked thumbnail
+            const mainImage = document.querySelector('.main-product-image');
+            const thumbImg = this.querySelector('img');
+            if (mainImage && thumbImg) {
+                mainImage.src = thumbImg.src;
+                mainImage.alt = thumbImg.alt;
+            }
+            currentIndex = index;
         });
     });
 

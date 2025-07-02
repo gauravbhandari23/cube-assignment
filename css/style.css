@@ -371,13 +371,13 @@ html {
 }
 
 .dot-2 .ingredient-item {
-    top: -20px;
-    left: -70px;
+    top: -40px;
+    left: -50px;
 }
 
 .dot-3 {
-    top: 10%;
-    right: 15%;
+    top: 15%;
+    right: 20%;
 }
 
 .dot-3 .ingredient-item {
@@ -417,13 +417,13 @@ html {
  
  .dot-7 {
     bottom: 5%;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
  }
  
  .dot-7 .ingredient-item {
     bottom: -60px;
-    left: -50px;
+    left: -40px;
  }
  
  .dot-8 {
@@ -437,7 +437,7 @@ html {
  }
  
  .dot-9 {
-    top: 60%;
+    top: 50%;
     left: 5%;
  }
  
@@ -941,9 +941,13 @@ html {
  }
  
  .included-bottles img {
-    width: 144px;
-    height: 160px;
+    width: 90px !important;
+    max-width: 288px;
+    height: 90px !important;
+    max-height: 320px;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
  }
  
  /* Subscription Type for Try Once */
@@ -1677,7 +1681,7 @@ html {
     
     .included-bottles img {
         width: 30px;
-        height: 30px;
+        height: 50px;
     }
     
     .features-list {
@@ -2994,43 +2998,11 @@ html {
   background: #F0FDF4;
 }
 
-/* Tick (Checkmark) - default (other rows) */
-.comparison-table .checkmark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  color: #222 !important; /* black */
-  border: 2px solid #222 !important; /* black border */
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 18px;
-  font-weight: bold;
-  vertical-align: middle;
-}
-
 /* Tick (Checkmark) - first row only */
 .comparison-table tr:first-child .checkmark {
   background: #032E15 !important;
   color: #fff !important;
   border: none !important;
-}
-
-/* Cross (X) Styling - all rows */
-.comparison-table .cross {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  color: #222 !important; /* black */
-  border: 2px solid #222 !important; /* black border */
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 18px;
-  font-weight: bold;
-  vertical-align: middle;
 }
 
 /* Tick (Checkmark) - first row only */
