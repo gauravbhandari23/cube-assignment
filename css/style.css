@@ -2091,12 +2091,13 @@ html {
 }
 .gtg-highlight {
   background: #F0FDF4 !important;
-  color: 'white' !important;
+  color: black;
   font-weight: 700;
   border-radius: 12px;
 }
+.comparison-table tr:first-child td.gtg-highlight,
 .comparison-table td.gtg-highlight {
-  box-shadow: '0 2px 8px rgba(19,60,35,0.04)';
+  background: #F0FDF4 !important;
 }
 .comparison-table td.gtg-highlight .checkmark {
   background: #032E15 !important;
